@@ -8,6 +8,9 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ArticleService } from '../services/article/article.service';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +31,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    {provide: 'InAppBrowser', useClass: InAppBrowser},
+    {provide: 'articleService', useClass: ArticleService},
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

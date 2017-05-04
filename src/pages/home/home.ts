@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
@@ -6,9 +6,15 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  private articles : Array<any>;
 
-  constructor(public navCtrl: NavController) {
+  constructor(@Inject('InAppBrowser') private iab, public navCtrl: NavController, @Inject('articleService') private articleService) {
+    this.iab = iab;
+    this.articles = articleService.articles;
+  }
 
+  gotoLink(link) {
+    this.iab.create(link, '_self', 'location=yes');
   }
 
 }

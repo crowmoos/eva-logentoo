@@ -3,16 +3,49 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Logentoo</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openModal()">
+        <ion-icon name="options"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content class="content-color" >
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-fab right bottom>
+    <button ion-fab>
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+  </ion-fab>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ion-card *ngFor="let article of articles"  (click)='gotoLink(article.link)'>
+    <ion-card-header>
+      <ion-icon name="pin" small icon-left></ion-icon>
+      {{article.subLocation}} , {{article.location}}
+    </ion-card-header>
+    <ion-item>
+      <span item-left>
+        <p class="article-desciption">
+          {{article.title}}
+        </p>
+      </span>
+      <ion-avatar item-left >
+        <img [src]="article.imgSrc" class="img-prev">
+      </ion-avatar>
+    </ion-item>
+    <ion-item>
+      <span item-left>
+        <p>2 piéces 20m²</p>
+      </span>
+      <span icon-right clear item-right>
+        <span class="item-price">
+          {{article.price}}
+        </span>
+        <ion-icon name="logo-euro" isActive="false" class="price-logo"></ion-icon>
+      </span>
+    </ion-item>
+    <hr class="card-hr">
+  </ion-card>
 </ion-content>
