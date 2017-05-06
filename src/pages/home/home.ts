@@ -10,7 +10,12 @@ export class HomePage {
 
   constructor(@Inject('InAppBrowser') private iab, public navCtrl: NavController, @Inject('articleService') private articleService) {
     this.iab = iab;
-    this.articles = articleService.articles;
+    articleService.getArticles()
+      .subscribe(articles => {
+        this.articles = articles;
+        console.log(articles[0]);
+      })
+    ;
   }
 
   gotoLink(link) {

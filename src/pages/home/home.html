@@ -22,28 +22,31 @@
 
   <ion-card *ngFor="let article of articles"  (click)='gotoLink(article.link)'>
     <ion-card-header>
-      <ion-icon name="pin" small icon-left></ion-icon>
-      {{article.subLocation}} , {{article.location}}
+      {{article.title}}
     </ion-card-header>
     <ion-item>
-      <span item-left>
+      <div item-left>
         <p class="article-desciption">
-          {{article.title}}
+          <ion-icon name="pin" small icon-left></ion-icon>
+          {{article.city}}
         </p>
-      </span>
-      <ion-avatar item-left >
-        <img [src]="article.imgSrc" class="img-prev">
-      </ion-avatar>
-    </ion-item>
-    <ion-item>
-      <span item-left>
-        <p>2 piéces 20m²</p>
-      </span>
-      <span icon-right clear item-right>
         <span class="item-price">
           {{article.price}}
+          <ion-icon name="logo-euro" isActive="false" class="price-logo"></ion-icon>
         </span>
-        <ion-icon name="logo-euro" isActive="false" class="price-logo"></ion-icon>
+        <br>
+        <ion-badge *ngIf="article.rooms" item-left>{{article.rooms}} Piéces</ion-badge>
+        <ion-badge *ngIf="article.surface" item-left>{{article.surface}} m²</ion-badge>
+        <ion-badge *ngIf="article.isPro === 1" item-left>Agence</ion-badge>
+      </div>
+      <span item-right >
+        <div *ngIf="article.imgSrc; then loadDynamicSrc else loadStaticSrc"></div>
+        <ng-template #loadDynamicSrc>
+          <img #loadDynamicSrc [src]="'https://'+article.imgSrc" class="img-prev">
+        </ng-template>
+        <ng-template #loadStaticSrc>
+          <img src="assets/images/house.png" class="img-prev">
+        </ng-template>
       </span>
     </ion-item>
     <hr class="card-hr">

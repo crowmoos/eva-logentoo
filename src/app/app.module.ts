@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ArticleService } from '../services/article/article.service';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     ListPage
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
   ],

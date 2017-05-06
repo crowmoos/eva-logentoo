@@ -41,15 +41,20 @@ page-home {
     margin-left: -20px;
   }
 
-  .prev-image {
-    width: 28%;
-    float: right;
-    display: inline-block;
+  .img-prev {
+    max-height: 80px;
+    position: absolute;
+    top: 8px;
+    right: 0px;
+    width: 33%;
+  }
+
+  .badge{
+    margin-right: 0px !important;
   }
 
   .article-desciption {
     color: #a4a1a1;
-    width: 88%;
   }
 
   .item ion-avatar ion-img, .item ion-avatar img{
@@ -89,5 +94,13 @@ page-home {
     border-bottom: 1px solid #ddd;
     text-align: center;
     font-size: 20px;
+  }
+
+  .badge {
+    background: transparent;
+    border-radius: 3px;
+    color: #376ac5;
+    font-weight: normal;
+    border: 1px solid #376ac5;
   }
 }
