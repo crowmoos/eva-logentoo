@@ -1,0 +1,33 @@
+<ion-card >
+  <ion-card-header>
+    {{article.title}}
+  </ion-card-header>
+  <ion-item>
+    <div item-left>
+      <p class="article-desciption">
+        <ion-icon name="pin" small icon-left></ion-icon>
+        {{article.city}}
+      </p>
+      <span class="item-price">
+        {{article.price}}
+        <ion-icon name="logo-euro" isActive="false" class="price-logo"></ion-icon>
+      </span>
+      <br>
+      <ion-badge *ngIf="article.rooms" item-left>{{article.rooms}} Piéces</ion-badge>
+      <ion-badge *ngIf="article.surface" item-left>{{article.surface}} m²</ion-badge>
+      <ion-badge *ngIf="article.isPro === 1" item-left>Agence</ion-badge>
+      <ion-badge *ngIf="article.isPerso ===1" item-left>Particulier</ion-badge>
+
+    </div>
+    <span item-right >
+      <div *ngIf="article.imgSrc; then loadDynamicSrc else loadStaticSrc"></div>
+      <ng-template #loadDynamicSrc>
+        <img #loadDynamicSrc [src]="article.imgSrc" class="img-prev">
+      </ng-template>
+      <ng-template #loadStaticSrc>
+        <img src="assets/images/house.png" class="img-prev">
+      </ng-template>
+    </span>
+  </ion-item>
+  <hr class="card-hr">
+</ion-card>

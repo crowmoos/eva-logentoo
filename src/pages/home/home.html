@@ -5,7 +5,7 @@
     </button>
     <ion-title>Logentoo</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="openModal()">
+      <button ion-button icon-only (click)="openModal({charNum: 0})">
         <ion-icon name="options"></ion-icon>
       </button>
     </ion-buttons>
@@ -19,36 +19,9 @@
       <ion-icon name="md-add"></ion-icon>
     </button>
   </ion-fab>
+  <article-card *ngFor="let article of articles"
+   (click)='gotoLink(article.link)'
+   [article]='article'
+   ></article-card>
 
-  <ion-card *ngFor="let article of articles"  (click)='gotoLink(article.link)'>
-    <ion-card-header>
-      {{article.title}}
-    </ion-card-header>
-    <ion-item>
-      <div item-left>
-        <p class="article-desciption">
-          <ion-icon name="pin" small icon-left></ion-icon>
-          {{article.city}}
-        </p>
-        <span class="item-price">
-          {{article.price}}
-          <ion-icon name="logo-euro" isActive="false" class="price-logo"></ion-icon>
-        </span>
-        <br>
-        <ion-badge *ngIf="article.rooms" item-left>{{article.rooms}} Piéces</ion-badge>
-        <ion-badge *ngIf="article.surface" item-left>{{article.surface}} m²</ion-badge>
-        <ion-badge *ngIf="article.isPro === 1" item-left>Agence</ion-badge>
-      </div>
-      <span item-right >
-        <div *ngIf="article.imgSrc; then loadDynamicSrc else loadStaticSrc"></div>
-        <ng-template #loadDynamicSrc>
-          <img #loadDynamicSrc [src]="'https://'+article.imgSrc" class="img-prev">
-        </ng-template>
-        <ng-template #loadStaticSrc>
-          <img src="assets/images/house.png" class="img-prev">
-        </ng-template>
-      </span>
-    </ion-item>
-    <hr class="card-hr">
-  </ion-card>
 </ion-content>
