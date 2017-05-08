@@ -2,31 +2,40 @@
   <ion-card-header>
     {{article.title}}
   </ion-card-header>
-  <ion-item>
-    <div item-left>
-      <p class="article-desciption">
-        <ion-icon name="pin" small icon-left></ion-icon>
-        {{article.city}}
-      </p>
-      <span class="item-price">
-        {{article.price}}
-        <ion-icon name="logo-euro" isActive="false" class="price-logo"></ion-icon>
-      </span>
-      <br>
+  <ion-item class="item-content">
+    <div item-left class="item-left-container">
+      <ion-badge>
+        <ion-icon name="pin" class="small-pin" small icon-left></ion-icon>{{article.city}}
+      </ion-badge>
       <ion-badge *ngIf="article.rooms" item-left>{{article.rooms}} Piéces</ion-badge>
       <ion-badge *ngIf="article.surface" item-left>{{article.surface}} m²</ion-badge>
       <ion-badge *ngIf="article.isPro === 1" item-left>Agence</ion-badge>
+      <ion-badge *ngIf="article.meuble !== 0" item-left>Meublé</ion-badge>
       <ion-badge *ngIf="article.isPerso ===1" item-left>Particulier</ion-badge>
+      <br>
+      <span class="item-price">
+        {{article.price}}
+        <!-- TODO: add filter that split thousands wth spaces -->
+        <ion-icon name="logo-euro" isActive="false" class="price-logo"></ion-icon>
+      </span>
 
     </div>
-    <span item-right >
+    <span item-right  class="thumb-item">
       <div *ngIf="article.imgSrc; then loadDynamicSrc else loadStaticSrc"></div>
       <ng-template #loadDynamicSrc>
-        <img #loadDynamicSrc [src]="article.imgSrc" class="img-prev">
+        <ion-thumbnail>
+          <img #loadDynamicSrc [src]="article.imgSrc" class="img-prev">
+        </ion-thumbnail>
       </ng-template>
       <ng-template #loadStaticSrc>
-        <img src="assets/images/house.png" class="img-prev">
+          <img src="assets/images/house.png" class="img-prev">
       </ng-template>
+      <!-- TODO: fix type enum in crowlers -->
+      <div class="source-badge-container" style="display:none;">
+        <ion-badge *ngIf="article.source === 1" class="pap-badge" item-left>pap.fr</ion-badge>
+        <ion-badge *ngIf="article.source === 0" class="bncoin-badge" item-left>leboncoin</ion-badge>
+      </div>
+
     </span>
   </ion-item>
   <hr class="card-hr">

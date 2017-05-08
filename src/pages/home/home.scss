@@ -19,7 +19,7 @@ page-home {
     color: #376ac5;
     font-size: 20px;
     font-weight: bold;
-    margin-right: -10px;
+    margin-left: 6px;
   }
 
   .price-logo{
@@ -43,14 +43,19 @@ page-home {
 
   .img-prev {
     max-height: 80px;
-    position: absolute;
-    top: 8px;
-    right: 5px;
-    width: 33%;
+    // position: absolute;
+    // top: 8px;
+    // right: 5px;
+    // width: 33%;
   }
 
-  .badge{
-    margin-right: 0px !important;
+  .item-md [item-left], .item-md [item-right] {
+    margin-right: 0px;
+  }
+
+  .item-md ion-thumbnail ion-img, .item-md ion-thumbnail img{
+    width: auto;
+    height: auto;
   }
 
   .article-desciption {
@@ -75,6 +80,8 @@ page-home {
   }
 
   .card-header {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: bold;
     color: black;
     margin-bottom: -17px;
   }
@@ -97,10 +104,49 @@ page-home {
   }
 
   .badge {
-    background: transparent;
+    font-family: 'Fira Sans', sans-serif;
+    background: #f2f2f2;
     border-radius: 3px;
-    color: #376ac5;
-    font-weight: normal;
-    border: 1px solid #376ac5;
+    font-weight: bolder;
+    color: #333;
+    border: 1px solid #eee;
+    margin-right: 0px !important;
+  }
+
+  .source-badge-container{
+    position: absolute;
+    bottom: -6px;
+    right: 4px;
+    border-radius: 11px;
+    border: none;
+    opacity: 0.5;
+  }
+
+  .pap-badge{
+    color: white;
+    background-color: #005ea8;
+  }
+
+  .bncoin-badge {
+    color: white;
+    background-color: #f56b2a;
+  }
+
+  .item-left-container{
+    width: 62%;
+  }
+
+  .item-content{
+    width: 95%;
+  }
+
+  .small-pin {
+    margin-right: 5px;
+  }
+
+  .item {
+    background-color: #fafafa;
+    border: 1px solid #eee;
+    margin: 10px;
   }
 }

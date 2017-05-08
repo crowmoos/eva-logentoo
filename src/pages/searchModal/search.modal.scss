@@ -1,0 +1,49 @@
+search-modal {
+  .toolbar-background{
+    background-color: white;
+  }
+
+  .header{
+    border-bottom: 1px solid #ddd;
+  }
+  .header::after{
+    background-image: none;
+  }
+
+  .item-content {
+    background-color: #eeeeee;
+  }
+
+  .searchbar {
+    padding: 0px;
+  }
+
+  .searchbar-md .searchbar-input{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: none;
+  }
+
+  .searchbar-search-icon {
+    color: blue;
+  }
+
+  .card-modal {
+    box-shadow: none;
+    border: 1px solid #eee;
+  }
+
+  .card-header {
+    font-weight: bold;
+    font-family: 'Fira Sans', sans-serif;
+    background-color: #fafafa;
+  }
+
+  .type-card .item-content{
+    border-top: 1px solid #d6d4d4;
+  }
+
+  .item.item-md .checkbox-md {
+    margin-right: 10px;
+  }
+}

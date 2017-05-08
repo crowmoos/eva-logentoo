@@ -12,7 +12,63 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-searchbar
-    placeholder="Ville, Code Postale"
-  ></ion-searchbar>
+  <ion-card class="card-modal">
+    <ion-card-header class="card-header">
+      VOS LIEUX
+    </ion-card-header>
+    <ion-item class="item-content">
+      <ion-searchbar class="card-searchbar"
+      placeholder="Ville, Code Postale"
+      ></ion-searchbar>
+    </ion-item>
+  </ion-card>
+
+  <ion-card class="card-modal type-card">
+    <ion-card-header class="card-header">
+      Prix Max/min
+    </ion-card-header>
+    <ion-item class="item-content">
+      <ion-range [(ngModel)]="dualValue" color="danger" pin="true" min="0" max="1000" step="1"  dualKnobs="true">
+        <span range-left>{{dualValue.lower}}‎€</span>
+        <span range-right>{{dualValue.upper}}‎€</span>
+      </ion-range>
+    </ion-item>
+  </ion-card>
+
+  <ion-card class="card-modal type-card">
+    <ion-card-header class="card-header">
+      Type Location
+    </ion-card-header>
+    <ion-item class="item-content">
+      <ion-label>Maison</ion-label>
+      <ion-checkbox [(ngModel)]="maison" class="modal-checkbox"></ion-checkbox>
+    </ion-item>
+    <ion-item class="item-content">
+      <ion-label>Appartement</ion-label>
+      <ion-checkbox [(ngModel)]="appart" class="modal-checkbox"></ion-checkbox>
+    </ion-item>
+    <ion-item class="item-content">
+      <ion-label>Parking , Garage</ion-label>
+      <ion-checkbox [(ngModel)]="parking" class="modal-checkbox"></ion-checkbox>
+    </ion-item>
+    <ion-item class="item-content">
+      <ion-label>Local Commercial</ion-label>
+      <ion-checkbox [(ngModel)]="commerce" class="modal-checkbox"></ion-checkbox>
+    </ion-item>
+  </ion-card>
+  <br>
+  <ion-card class="card-modal type-card">
+    <ion-card-header class="card-header">
+      Type locateur
+    </ion-card-header>
+    <ion-item class="item-content">
+      <ion-label>Particulier</ion-label>
+      <ion-checkbox [(ngModel)]="isPerso" class="modal-checkbox"></ion-checkbox>
+    </ion-item>
+    <ion-item class="item-content">
+      <ion-label>Agence</ion-label>
+      <ion-checkbox [(ngModel)]="isPro" class="modal-checkbox"></ion-checkbox>
+    </ion-item>
+  </ion-card>
+
 </ion-content>
