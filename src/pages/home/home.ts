@@ -10,7 +10,12 @@ import { ModalContentPage } from '../searchModal/search.modal';
 export class HomePage {
   private articles : Array<any>;
 
-  constructor(@Inject('InAppBrowser') private iab,public modalCtrl: ModalController, public navCtrl: NavController, @Inject('articleService') private articleService) {
+  constructor(
+    @Inject('InAppBrowser') private iab,
+    public modalCtrl: ModalController,
+    public navCtrl: NavController,
+    @Inject('articleService') private articleService
+  ) {
     this.iab = iab;
     articleService.getArticles()
       .subscribe(articles => {

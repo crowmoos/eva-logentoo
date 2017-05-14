@@ -14,13 +14,17 @@
 <ion-content>
   <ion-card class="card-modal">
     <ion-card-header class="card-header">
-      VOS LIEUX
+      VOS LIEUX:
     </ion-card-header>
     <ion-item class="item-content">
-      <ion-searchbar class="card-searchbar"
-      placeholder="Ville, Code Postale"
-      ></ion-searchbar>
+      <button ion-button *ngFor="let chosenCity of chosenCities" class="chosen-cities">{{chosenCity.name}}</button>
+      <ion-searchbar [(ngModel)]="searchCity" id="search-input"  class="card-searchbar" placeholder="Ville, Code Postale" ></ion-searchbar>
     </ion-item>
+    <ion-list>
+      <button ion-item *ngFor="let city of autoCompleteCities" (click)="citySelected(city)" class="city-button">
+        {{ city.name | lowercase }}
+      </button>
+    </ion-list>
   </ion-card>
 
   <ion-card class="card-modal type-card">
