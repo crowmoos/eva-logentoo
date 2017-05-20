@@ -12,18 +12,33 @@ page-home {
   }
 
   .toolbar-title{
-    font-size: 20px;
+    font-size: 17px;
+    vertical-align: middle;
+    font-weight: lighter;
+  }
+
+  .logo{
+    max-height: 35px;
+    margin-right: 5px;
+    border-radius: 5px;
+    vertical-align: middle;
+  }
+
+  .search-icon {
+    font-size: 25px !important;
   }
 
   .item-price{
-    color: #376ac5;
+    // color: #376ac5;
+    color: #f53d3d;
     font-size: 20px;
     font-weight: bold;
     margin-left: 6px;
   }
 
   .price-logo{
-    color: #376ac5;
+    // color: #376ac5;
+    color: #f53d3d;
     font-size: 17px;
   }
 

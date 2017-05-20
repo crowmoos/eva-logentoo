@@ -1,12 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
+    <button ion-button (click)="dismiss()" clear class="back-search-button">
+      <ion-icon name="md-arrow-back" ></ion-icon>
+    </button>
+    <!-- <ion-title>
       Options Recherche
-    </ion-title>
+    </ion-title> -->
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
-        <span ion-text color="primary" showWhen="ios">Cancel</span>
-        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+        <span>
+          <button ion-button full>
+            <ion-icon name="md-search" style="margin-right:5px;"></ion-icon>
+              Rechercher
+          </button>
+        </span>
       </button>
     </ion-buttons>
   </ion-toolbar>
@@ -17,7 +24,9 @@
       VOS LIEUX:
     </ion-card-header>
     <ion-item class="item-content">
-      <button ion-button *ngFor="let chosenCity of chosenCities" class="chosen-cities">{{chosenCity.name}}</button>
+      <button ion-button color="danger"  *ngFor="let chosenCity of chosenCities" class="chosen-cities" (click)="removeCity(chosenCity)">
+        {{chosenCity.name}} <span style="text-transform:none;margin-left:10px;">x</span>
+      </button>
       <ion-searchbar [(ngModel)]="searchCity" id="search-input"  class="card-searchbar" placeholder="Ville, Code Postale" ></ion-searchbar>
     </ion-item>
     <ion-list>
@@ -32,46 +41,50 @@
       Prix Max/min
     </ion-card-header>
     <ion-item class="item-content">
-      <ion-range [(ngModel)]="dualValue" color="danger" pin="true" min="0" max="1000" step="1"  dualKnobs="true">
-        <span range-left>{{dualValue.lower}}‎€</span>
-        <span range-right>{{dualValue.upper}}‎€</span>
+      <ion-range [(ngModel)]="searchParamsService.searchQuery.price" color="danger" pin="true" min="0" max="1000" step="1"  dualKnobs="true">
+        <span range-left>{{searchParamsService.searchQuery.price.lower}}‎€</span>
+        <span range-right>{{searchParamsService.searchQuery.price.upper}}‎€</span>
       </ion-range>
     </ion-item>
   </ion-card>
-
+   <br>
+   <ion-card class="card-modal type-card">
+     <ion-card-header class="card-header">
+       Type locateur
+     </ion-card-header>
+     <ion-item class="item-content">
+       <ion-label>Particulier</ion-label>
+       <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isPerso" class="modal-checkbox"></ion-checkbox>
+     </ion-item>
+     <ion-item class="item-content">
+       <ion-label>Agence</ion-label>
+       <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isPro" class="modal-checkbox"></ion-checkbox>
+     </ion-item>
+   </ion-card>
+   <br>
   <ion-card class="card-modal type-card">
     <ion-card-header class="card-header">
       Type Location
     </ion-card-header>
     <ion-item class="item-content">
       <ion-label>Maison</ion-label>
-      <ion-checkbox [(ngModel)]="maison" class="modal-checkbox"></ion-checkbox>
+      <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isMaison"  class="modal-checkbox"></ion-checkbox>
     </ion-item>
     <ion-item class="item-content">
       <ion-label>Appartement</ion-label>
-      <ion-checkbox [(ngModel)]="appart" class="modal-checkbox"></ion-checkbox>
+      <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isAppart"  class="modal-checkbox"></ion-checkbox>
+    </ion-item>
+    <ion-item class="item-content">
+      <ion-label>Studio</ion-label>
+      <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isStudio"  class="modal-checkbox"></ion-checkbox>
     </ion-item>
     <ion-item class="item-content">
       <ion-label>Parking , Garage</ion-label>
-      <ion-checkbox [(ngModel)]="parking" class="modal-checkbox"></ion-checkbox>
+      <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isGarage"  class="modal-checkbox"></ion-checkbox>
     </ion-item>
     <ion-item class="item-content">
       <ion-label>Local Commercial</ion-label>
-      <ion-checkbox [(ngModel)]="commerce" class="modal-checkbox"></ion-checkbox>
-    </ion-item>
-  </ion-card>
-  <br>
-  <ion-card class="card-modal type-card">
-    <ion-card-header class="card-header">
-      Type locateur
-    </ion-card-header>
-    <ion-item class="item-content">
-      <ion-label>Particulier</ion-label>
-      <ion-checkbox [(ngModel)]="isPerso" class="modal-checkbox"></ion-checkbox>
-    </ion-item>
-    <ion-item class="item-content">
-      <ion-label>Agence</ion-label>
-      <ion-checkbox [(ngModel)]="isPro" class="modal-checkbox"></ion-checkbox>
+      <ion-checkbox color="danger" [(ngModel)]="commerce" class="modal-checkbox"></ion-checkbox>
     </ion-item>
   </ion-card>
 

@@ -1,15 +1,11 @@
 import { Component, Inject } from '@angular/core';
 import { Platform, NavParams, ViewController } from 'ionic-angular';
 
-
 @Component({
   selector: 'search-modal',
   templateUrl: 'search.modal.html'
 })
 export class ModalContentPage {
-  private dualValue:any;
-  private maison:boolean;
-  private appart:boolean;
   private searchCity: String;
   private autoCompleteCities: Array<any>;
   private chosenCities: Array<any>;
@@ -18,19 +14,16 @@ export class ModalContentPage {
     public platform: Platform,
     public params: NavParams,
     public viewCtrl: ViewController,
-    @Inject('articleService') private articleService,
+    @Inject('searchParamsService') private searchParamsService,
   ) {
     this.autoCompleteCities = [];
-    this.chosenCities = [];
-    this.dualValue = {lower :200, upper: 700}
-    this.maison = true;
+    this.chosenCities = searchParamsService.getZipCodeList();
     this.searchCity = '';
-    this.articleService = articleService;
-    this.appart = true;
+    this.searchParamsService = searchParamsService;
   }
 
   ngAfterViewInit() {
-    this.articleService.autocompleteZipCode(document.getElementById('search-input'))
+    this.searchParamsService.autocompleteZipCode(document.getElementById('search-input'))
       .subscribe(cities => {
         this.autoCompleteCities = cities;
         console.log(cities);
@@ -41,11 +34,15 @@ export class ModalContentPage {
 
   citySelected(city) {
     if(this.chosenCities.filter(elm => elm.zipCode === city.zipCode).length === 0) {
-      this.chosenCities.push(city);
+      this.searchParamsService.addCity(city);
     }
     this.autoCompleteCities = [];
     this.searchCity = '';
     // TODO: set auto focus
+  }
+
+  removeCity(city) {
+    this.chosenCities = this.searchParamsService.removeCity(city);
   }
 
   dismiss() {

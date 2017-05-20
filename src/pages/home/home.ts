@@ -14,13 +14,19 @@ export class HomePage {
     @Inject('InAppBrowser') private iab,
     public modalCtrl: ModalController,
     public navCtrl: NavController,
-    @Inject('articleService') private articleService
+    @Inject('articleService') private articleService,
+    @Inject('searchParamsService') private searchParamsService,
   ) {
     this.iab = iab;
-    articleService.getArticles()
+    this.articleService = articleService;
+    this.searchParamsService = searchParamsService;
+    this.reloadArticles();
+  }
+
+  reloadArticles() {
+    this.articleService.getArticlesBySearchParams()
       .subscribe(articles => {
         this.articles = articles;
-        console.log(articles[0]);
       })
     ;
   }
@@ -32,6 +38,10 @@ export class HomePage {
   openModal(characterNum) {
     let modal = this.modalCtrl.create(ModalContentPage, characterNum);
     modal.present();
+    modal.onDidDismiss(data => {
+      this.searchParamsService.updateLocalStorage();
+      this.reloadArticles();
+    });
   }
 
 }
