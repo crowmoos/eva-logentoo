@@ -1,6 +1,6 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { ModalController } from 'ionic-angular';
+import { ModalController, Select } from 'ionic-angular';
 import { ModalContentPage } from '../searchModal/search.modal';
 
 @Component({
@@ -8,6 +8,7 @@ import { ModalContentPage } from '../searchModal/search.modal';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  @ViewChild('selectsort') selectsort:Select;
   private articles : Array<any>;
 
   constructor(
@@ -44,4 +45,7 @@ export class HomePage {
     });
   }
 
+  triggerSort() {
+    this.selectsort.open();
+  }
 }

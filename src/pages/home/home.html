@@ -1,8 +1,10 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon class="search-icon" name="menu"></ion-icon>
-    </button>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="openModal({charNum: 0})">
+        <ion-icon class="search-icon" name="md-menu"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>
       <img src="assets/images/logento.png" class="logo">
       Logentoo
@@ -21,7 +23,10 @@
       <ion-icon name="md-add"></ion-icon>
     </button>
     <ion-fab-list side="top">
-      <button ion-fab color="danger">
+      <button ion-fab color="danger" >
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button ion-fab color="danger" (click)="triggerSort()">
         <ion-icon name="md-funnel"></ion-icon>
       </button>
       <button ion-fab color="danger" (click)="openModal({charNum: 0})">
@@ -29,6 +34,17 @@
       </button>
     </ion-fab-list>
   </ion-fab>
+  <ion-list>
+  <ion-item style="display:none;">
+    <ion-label>Trier Par</ion-label>
+    <ion-select [(ngModel)]="sorting" #selectsort interface="action-sheet">
+      <ion-option value="Date" selected="true">Date</ion-option>
+      <ion-option value="Prix">Prix</ion-option>
+      <ion-option value="Surface">Surface</ion-option>
+      <ion-option value="Pieces">Pieces</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
   <article-card *ngFor="let article of articles"
    (click)='gotoLink(article.link)'
    [article]='article'

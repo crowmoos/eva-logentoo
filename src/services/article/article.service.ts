@@ -17,8 +17,8 @@ export class ArticleService {
 
   constructor(private http:Http, @Inject('searchParamsService') private searchParamsService) {
     this.searchParamsService = searchParamsService;
-    this.apiUrl = 'http://192.168.43.199:3000/articles';
-    this.apiByZipCodeUrl = 'http://192.168.43.199:3000/articles-post';
+    this.apiUrl = 'http://localhost:3000/articles';
+    this.apiByZipCodeUrl = 'http://localhost:3000/articles-post';
     this.http = http;
   }
 

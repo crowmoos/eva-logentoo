@@ -50,6 +50,23 @@
    <br>
    <ion-card class="card-modal type-card">
      <ion-card-header class="card-header">
+       Piéces
+     </ion-card-header>
+     <ion-item>
+       <ion-label>Nombre des pieces</ion-label>
+       <ion-select [(ngModel)]="gaming" multiple="true">
+         <ion-option value="1" >1</ion-option>
+         <ion-option value="2" >2</ion-option>
+         <ion-option value="3" >3</ion-option>
+         <ion-option value="4" >4</ion-option>
+         <ion-option value="5" >5</ion-option>
+         <ion-option value="6" >5+</ion-option>
+       </ion-select>
+     </ion-item>
+   </ion-card>
+   <br>
+   <ion-card class="card-modal type-card">
+     <ion-card-header class="card-header">
        Type locateur
      </ion-card-header>
      <ion-item class="item-content">
