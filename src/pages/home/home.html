@@ -1,11 +1,11 @@
 <ion-header>
   <ion-navbar>
-    <ion-buttons left>
+    <ion-buttons left class="menu-button">
       <button ion-button icon-only (click)="openModal({charNum: 0})">
         <ion-icon class="search-icon" name="md-menu"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>
+    <ion-title class="logento-full-logo">
       <img src="assets/images/logento.png" class="logo">
       Logentoo
     </ion-title>
@@ -19,7 +19,7 @@
 
 <ion-content class="content-color" >
   <ion-fab right bottom>
-    <button ion-fab color="danger">
+    <button ion-fab color="danger" class="fab-home">
       <ion-icon name="md-add"></ion-icon>
     </button>
     <ion-fab-list side="top">
@@ -45,8 +45,18 @@
     </ion-select>
   </ion-item>
 </ion-list>
-  <article-card *ngFor="let article of articles"
-   (click)='gotoLink(article.link)'
-   [article]='article'
-   ></article-card>
+  <desktop-side-bar class="sidebar-container"></desktop-side-bar>
+  <div class="article-card-container">
+    <div class="search-result">
+      <span> Resultats</span>
+      <button ion-button (click)="triggerSort()" clear color="danger">
+        <ion-label>Trier</ion-label>
+        <ion-icon name="md-funnel"></ion-icon>
+      </button>
+    </div>
+    <article-card *ngFor="let article of articles"
+    (click)='gotoLink(article.link)'
+    [article]='article'
+    ></article-card>
+  </div>
 </ion-content>

@@ -164,4 +164,85 @@ page-home {
     border: 1px solid #eee;
     margin: 10px;
   }
+
+  .search-result {
+    display: none;
+  }
+
+}
+
+@media only screen and (min-width: 500px) {
+  page-home {
+    .search-result {
+      display: block;
+    }
+
+    .content{
+      background-color: white;
+    }
+  }
+
+
+  .search-result {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #f65353;
+    margin-left: 15px;
+    margin-right: 20px;
+    margin-top: 20px;
+    padding-bottom: 5px;
+  }
+
+  .search-result span {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .search-result button{
+    display: inline-block;
+    float: right;
+    margin-top: -10px;
+  }
+
+  .article-card-container {
+      display: inline-block;
+      width: 50%;
+  }
+
+  .menu-button {
+    display: none;
+  }
+
+
+  .logento-full-logo{
+    float: left;
+    margin-left: 7px !important;
+  }
+
+  desktop-side-bar{
+    ion-card{
+      background-color: #fafafa !important;
+      border: 1px solid #eeeeee !important;
+    }
+
+    ion-card-header{
+      font-size: 14px;
+      border: 1px solid #eeeeee !important;
+      background: white !important;
+    }
+
+    .item{
+      border:none;
+      background-color: transparent;
+      border: none;
+      width: 105%;
+      margin-left: -12px;
+      margin-top: 10px;
+      margin-bottom: -5px;
+    }
+  }
+  .fab-home {
+    display: none;
+  }
+
 }

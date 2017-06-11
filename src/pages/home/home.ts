@@ -21,15 +21,13 @@ export class HomePage {
     this.iab = iab;
     this.articleService = articleService;
     this.searchParamsService = searchParamsService;
-    this.reloadArticles();
-  }
-
-  reloadArticles() {
-    this.articleService.getArticlesBySearchParams()
+    this.articleService.reloadArticlesEvnt()
       .subscribe(articles => {
         this.articles = articles;
+        this.searchParamsService.updateLocalStorage();
       })
     ;
+    this.articleService.triggerReloadArticles();
   }
 
   gotoLink(link) {
@@ -40,8 +38,7 @@ export class HomePage {
     let modal = this.modalCtrl.create(ModalContentPage, characterNum);
     modal.present();
     modal.onDidDismiss(data => {
-      this.searchParamsService.updateLocalStorage();
-      this.reloadArticles();
+      this.articleService.triggerReloadArticles();
     });
   }
 

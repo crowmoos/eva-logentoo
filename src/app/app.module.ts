@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { Article } from '../components/article/article';
+import { SideBar } from '../components/side-bar/sideBar';
 import { ModalContentPage } from '../pages/searchModal/search.modal';
 import { ListPage } from '../pages/list/list';
 
@@ -22,6 +23,7 @@ import { HttpModule } from '@angular/http';
     HomePage,
     ListPage,
     Article,
+    SideBar,
     ModalContentPage
   ],
   imports: [

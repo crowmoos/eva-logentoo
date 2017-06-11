@@ -1,24 +1,3 @@
-<ion-header>
-  <ion-toolbar>
-    <button ion-button (click)="dismiss()" clear class="back-search-button">
-      <ion-icon name="md-arrow-back" ></ion-icon>
-    </button>
-    <!-- <ion-title>
-      Options Recherche
-    </ion-title> -->
-    <ion-buttons start>
-      <button ion-button (click)="dismiss()">
-        <span>
-          <button ion-button full>
-            <ion-icon name="md-search" style="margin-right:5px;"></ion-icon>
-              Rechercher
-          </button>
-        </span>
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-<ion-content>
   <ion-card class="card-modal">
     <ion-card-header class="card-header">
       VOS LIEUX:
@@ -27,7 +6,7 @@
       <button ion-button color="danger"  *ngFor="let chosenCity of chosenCities" class="chosen-cities" (click)="removeCity(chosenCity)">
         {{chosenCity.name}} <span style="text-transform:none;margin-left:10px;">x</span>
       </button>
-      <ion-searchbar [(ngModel)]="searchCity" class="card-searchbar" placeholder="Ville, Code Postale" ></ion-searchbar>
+      <ion-searchbar [(ngModel)]="searchCity"  class="card-searchbar" placeholder="Ville, Code Postale" ></ion-searchbar>
     </ion-item>
     <ion-list>
       <button ion-item *ngFor="let city of autoCompleteCities" (click)="citySelected(city)" class="city-button">
@@ -35,7 +14,7 @@
       </button>
     </ion-list>
   </ion-card>
-
+  <br>
   <ion-card class="card-modal type-card">
     <ion-card-header class="card-header">
       Prix Max/min
@@ -55,12 +34,12 @@
      <ion-item>
        <ion-label>Nombre des pieces</ion-label>
        <ion-select [(ngModel)]="searchParamsService.searchQuery.nbrRooms" multiple="true">
-         <ion-option value=1 >1</ion-option>
-         <ion-option value=2 >2</ion-option>
-         <ion-option value=3 >3</ion-option>
-         <ion-option value=4 >4</ion-option>
-         <ion-option value=5 >5</ion-option>
-         <ion-option value=6 >5+</ion-option>
+         <ion-option value=1> 1</ion-option>
+         <ion-option value=2> 2</ion-option>
+         <ion-option value=3> 3</ion-option>
+         <ion-option value=4> 4</ion-option>
+         <ion-option value=5> 5</ion-option>
+         <ion-option value=6> 5+</ion-option>
        </ion-select>
      </ion-item>
    </ion-card>
@@ -104,5 +83,3 @@
       <ion-checkbox color="danger" [(ngModel)]="commerce" class="modal-checkbox"></ion-checkbox>
     </ion-item>
   </ion-card>
-
-</ion-content>

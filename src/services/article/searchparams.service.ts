@@ -22,6 +22,7 @@ export class SearchParamsService {
         isMaison: true,
         isAppart: true,
         isGarage: true,
+        nbrRooms : [],
         price: {
           lower: 200,
           upper: 700

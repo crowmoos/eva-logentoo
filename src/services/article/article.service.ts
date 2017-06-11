@@ -14,12 +14,17 @@ export class ArticleService {
 
   private apiUrl: string;
   private apiByZipCodeUrl: string;
+  private reloadEvt: any;
+  private subReloadEvt: Observable<any>;
 
   constructor(private http:Http, @Inject('searchParamsService') private searchParamsService) {
     this.searchParamsService = searchParamsService;
     this.apiUrl = 'http://localhost:3000/articles';
     this.apiByZipCodeUrl = 'http://localhost:3000/articles-post';
     this.http = http;
+    this.subReloadEvt = Observable.create(obs =>{
+      this.reloadEvt = obs;
+    });
   }
 
   getArticles(): Observable<any> {
@@ -27,6 +32,16 @@ export class ArticleService {
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     ;
+  }
+
+  triggerReloadArticles(): void{
+    this.reloadEvt.next('reloading');
+  }
+
+  reloadArticlesEvnt(): Observable<any> {
+    return this.subReloadEvt.flatMap(value => {
+      return this.getArticlesBySearchParams();
+    });
   }
 
   getArticlesBySearchParams(): Observable<any> {
