@@ -9,16 +9,23 @@
       <img src="assets/images/logento.png" class="logo">
       Logentoo
     </ion-title>
-    <ion-buttons end>
+
+    <ion-buttons end class="small-only">
       <button ion-button icon-only (click)="openModal({charNum: 0})">
         <ion-icon class="search-icon" name="md-search"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end class="small-only">
+      <button ion-button icon-only (click)="triggerSort()">
+        <ion-icon class="search-icon" name="md-funnel"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="content-color" >
-  <ion-fab right bottom>
+  <ion-fab right bottom id="fab-menu-button">
     <button ion-fab color="danger" class="fab-home">
       <ion-icon name="md-add"></ion-icon>
     </button>
