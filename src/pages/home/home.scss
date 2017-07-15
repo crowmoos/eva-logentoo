@@ -37,146 +37,6 @@ page-home {
     font-size: 25px !important;
   }
 
-  .item-price{
-    // color: #376ac5;
-    color: #f53d3d;
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 6px;
-  }
-
-  .price-logo{
-    // color: #376ac5;
-    color: #f53d3d;
-    font-size: 17px;
-  }
-
-  .article-title{
-    font-weight: bold;
-  }
-
-  .article-header {
-    cursor: pointer;
-  }
-
-  .card{
-    margin-left: 0px;
-    margin-right: 0px;
-    width: 100%;
-  }
-
-  .title {
-    margin-left: -20px;
-  }
-
-  .img-prev {
-    max-height: 80px;
-    // position: absolute;
-    // top: 8px;
-    // right: 5px;
-    // width: 33%;
-  }
-
-  .item-md [item-left], .item-md [item-right] {
-    margin-right: 0px;
-  }
-
-  .item-md ion-thumbnail ion-img, .item-md ion-thumbnail img{
-    width: auto;
-    height: auto;
-  }
-
-  .article-desciption {
-    color: #a4a1a1;
-  }
-
-  .item ion-avatar ion-img, .item ion-avatar img{
-    border-radius: 5px;
-    width: 23%;
-    height: auto;
-    padding: 0px;
-    position: absolute;
-    right: 8px;
-  }
-
-  page-home .card, .card {
-    width: 100%;
-    width: 100%;
-    margin: 0;
-    border: none;
-    box-shadow: none;
-  }
-
-  .card-header {
-    font-family: 'Fira Sans', sans-serif;
-    font-weight: bold;
-    color: black;
-    margin-bottom: -17px;
-  }
-
-  .card-hr {
-    margin-right: 10px;
-    margin-left: 10px;
-    border: none;
-    border-bottom: 1px solid #f9f7f7;
-  }
-
-  .header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
-    background-image: none;
-  }
-
-  .header{
-    border-bottom: 1px solid #ddd;
-    text-align: center;
-    font-size: 20px;
-  }
-
-  .badge {
-    font-family: 'Fira Sans', sans-serif;
-    background: #f2f2f2;
-    border-radius: 3px;
-    font-weight: bolder;
-    color: #333;
-    border: 1px solid #eee;
-    margin-right: 0px !important;
-  }
-
-  .source-badge-container{
-    position: absolute;
-    bottom: -6px;
-    right: 4px;
-    border-radius: 11px;
-    border: none;
-    opacity: 0.5;
-  }
-
-  .pap-badge{
-    color: white;
-    background-color: #005ea8;
-  }
-
-  .seloger-badge{
-    color: white;
-    background-color: #a80617;
-  }
-
-  .bncoin-badge {
-    color: white;
-    background-color: #f56b2a;
-  }
-
-  .item-left-container{
-    width: 62%;
-  }
-
-  .item-content{
-    width: 95%;
-  }
-
-  .small-pin {
-    margin-right: 5px;
-  }
-
   .item {
     background-color: #fafafa;
     border: 1px solid #eee;
@@ -190,6 +50,10 @@ page-home {
 }
 
 @media only screen and (min-width: 500px) {
+  .small-only {
+      display: none;
+  }
+
   page-home {
     .search-result {
       display: block;
@@ -199,7 +63,6 @@ page-home {
       background-color: white;
     }
   }
-
 
   .search-result {
     display: block;
@@ -220,11 +83,6 @@ page-home {
     display: inline-block;
     float: right;
     margin-top: -10px;
-  }
-
-  .article-card-container {
-      display: inline-block;
-      width: 50%;
   }
 
   .menu-button {
