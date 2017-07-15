@@ -37,11 +37,11 @@
   <ion-list>
   <ion-item style="display:none;">
     <ion-label>Trier Par</ion-label>
-    <ion-select [(ngModel)]="sorting" #selectsort interface="action-sheet">
-      <ion-option value="Date" selected="true">Date</ion-option>
-      <ion-option value="Prix">Prix</ion-option>
-      <ion-option value="Surface">Surface</ion-option>
-      <ion-option value="Pieces">Pieces</ion-option>
+    <ion-select [(ngModel)]="searchParamsService.searchQuery.sort" #selectsort interface="action-sheet" (ngModelChange)="articleService.triggerReloadArticles()">
+      <ion-option value="date" selected="true">Date</ion-option>
+      <ion-option value="price">Prix</ion-option>
+      <ion-option value="surface">Surface</ion-option>
+      <ion-option value="rooms">Pieces</ion-option>
     </ion-select>
   </ion-item>
 </ion-list>
@@ -54,9 +54,6 @@
         <ion-icon name="md-funnel"></ion-icon>
       </button>
     </div>
-    <article-card *ngFor="let article of articles"
-    (click)='gotoLink(article.link)'
-    [article]='article'
-    ></article-card>
+    <article-card *ngFor="let article of articles" [article]='article'></article-card>
   </div>
 </ion-content>

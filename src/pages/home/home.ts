@@ -12,13 +12,11 @@ export class HomePage {
   private articles : Array<any>;
 
   constructor(
-    @Inject('InAppBrowser') private iab,
     public modalCtrl: ModalController,
     public navCtrl: NavController,
     @Inject('articleService') private articleService,
     @Inject('searchParamsService') private searchParamsService,
   ) {
-    this.iab = iab;
     this.articleService = articleService;
     this.searchParamsService = searchParamsService;
     this.articleService.reloadArticlesEvnt()
@@ -28,10 +26,6 @@ export class HomePage {
       })
     ;
     this.articleService.triggerReloadArticles();
-  }
-
-  gotoLink(link) {
-    this.iab.create(link, '_self', 'location=yes');
   }
 
   openModal(characterNum) {
