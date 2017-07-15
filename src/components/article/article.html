@@ -1,17 +1,17 @@
-<ion-card >
-  <ion-card-header>
+<ion-card>
+  <ion-card-header (click)='gotoLink(article.link)' class="article-header">
     {{article.title}}
   </ion-card-header>
   <ion-item class="item-content">
     <div item-left class="item-left-container">
-      <ion-badge>
+      <ion-badge class="selectable-badge">
         <ion-icon name="pin" class="small-pin" small icon-left></ion-icon>{{article.city}}
       </ion-badge>
-      <ion-badge *ngIf="article.rooms" item-left>{{article.rooms}} Piéces</ion-badge>
+      <ion-badge *ngIf="article.rooms" item-left class="selectable-badge">{{article.rooms}} Piéces</ion-badge>
       <ion-badge *ngIf="article.surface" item-left>{{article.surface}} m²</ion-badge>
       <ion-badge *ngIf="article.isPro === 1" item-left>Agence</ion-badge>
       <ion-badge *ngIf="article.meuble !== 0" item-left>Meublé</ion-badge>
-      <ion-badge *ngIf="article.isPerso ===1" item-left>Particulier</ion-badge>
+      <ion-badge *ngIf="article.isPerso ===1" item-left class="selectable-badge">Particulier</ion-badge>
       <br>
       <span class="item-price">
         {{article.price}}
@@ -24,14 +24,15 @@
       <div *ngIf="article.imgSrc; then loadDynamicSrc else loadStaticSrc"></div>
       <ng-template #loadDynamicSrc>
         <ion-thumbnail>
-          <img #loadDynamicSrc [src]="article.imgSrc" class="img-prev">
+          <img #loadDynamicSrc [src]="article.imgSrc" class="img-prev" (click)='gotoLink(article.link)'>
         </ion-thumbnail>
       </ng-template>
       <ng-template #loadStaticSrc>
-          <img src="assets/images/house.png" class="img-prev">
+          <img src="assets/images/house.png" class="img-prev" (click)='gotoLink(article.link)'>
       </ng-template>
       <!-- TODO: fix type enum in crowlers -->
       <div class="source-badge-container">
+        <ion-badge *ngIf="article.source === 2" class="seloger-badge" item-left>seLoger.com</ion-badge>
         <ion-badge *ngIf="article.source === 1" class="pap-badge" item-left>pap.fr</ion-badge>
         <ion-badge *ngIf="article.source === 0" class="bncoin-badge" item-left>leboncoin</ion-badge>
       </div>

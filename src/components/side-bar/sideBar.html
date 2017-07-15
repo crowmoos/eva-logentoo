@@ -20,7 +20,7 @@
       Prix Max/min
     </ion-card-header>
     <ion-item class="item-content">
-      <ion-range [(ngModel)]="searchParamsService.searchQuery.price" color="danger" pin="true" min="0" max="1000" step="1"  dualKnobs="true">
+      <ion-range [(ngModel)]="searchParamsService.searchQuery.price" color="danger" pin="true" min="0" max="1000" debounce="2000" step="1"  dualKnobs="true" (ionChange)="articleService.triggerReloadArticles()">
         <span range-left>{{searchParamsService.searchQuery.price.lower}}‎€</span>
         <span range-right>{{searchParamsService.searchQuery.price.upper}}‎€</span>
       </ion-range>
@@ -33,7 +33,7 @@
      </ion-card-header>
      <ion-item>
        <ion-label>Nombre des pieces</ion-label>
-       <ion-select [(ngModel)]="searchParamsService.searchQuery.nbrRooms" multiple="true">
+       <ion-select [(ngModel)]="searchParamsService.searchQuery.nbrRooms" multiple="true" (ngModelChange)="articleService.triggerReloadArticles()">
          <ion-option value=1> 1</ion-option>
          <ion-option value=2> 2</ion-option>
          <ion-option value=3> 3</ion-option>
@@ -50,11 +50,11 @@
      </ion-card-header>
      <ion-item class="item-content">
        <ion-label>Particulier</ion-label>
-       <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isPerso" class="modal-checkbox"></ion-checkbox>
+       <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isPerso" class="modal-checkbox" (ngModelChange)="articleService.triggerReloadArticles()"></ion-checkbox>
      </ion-item>
      <ion-item class="item-content">
        <ion-label>Agence</ion-label>
-       <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isPro" class="modal-checkbox"></ion-checkbox>
+       <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isPro" class="modal-checkbox" (ngModelChange)="articleService.triggerReloadArticles()"></ion-checkbox>
      </ion-item>
    </ion-card>
    <br>
@@ -64,22 +64,22 @@
     </ion-card-header>
     <ion-item class="item-content">
       <ion-label>Maison</ion-label>
-      <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isMaison"  class="modal-checkbox"></ion-checkbox>
+      <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isMaison"  class="modal-checkbox" (ngModelChange)="articleService.triggerReloadArticles()"></ion-checkbox>
     </ion-item>
     <ion-item class="item-content">
       <ion-label>Appartement</ion-label>
-      <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isAppart"  class="modal-checkbox"></ion-checkbox>
+      <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isAppart"  class="modal-checkbox" (ngModelChange)="articleService.triggerReloadArticles()"></ion-checkbox>
     </ion-item>
     <ion-item class="item-content">
       <ion-label>Studio</ion-label>
-      <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isStudio"  class="modal-checkbox"></ion-checkbox>
+      <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isStudio"  class="modal-checkbox" (ngModelChange)="articleService.triggerReloadArticles()"></ion-checkbox>
     </ion-item>
     <ion-item class="item-content">
       <ion-label>Parking , Garage</ion-label>
-      <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isGarage"  class="modal-checkbox"></ion-checkbox>
+      <ion-checkbox color="danger" [(ngModel)]="searchParamsService.searchQuery.isGarage"  class="modal-checkbox" (ngModelChange)="articleService.triggerReloadArticles()"></ion-checkbox>
     </ion-item>
     <ion-item class="item-content">
       <ion-label>Local Commercial</ion-label>
-      <ion-checkbox color="danger" [(ngModel)]="commerce" class="modal-checkbox"></ion-checkbox>
+      <ion-checkbox color="danger" [(ngModel)]="commerce" class="modal-checkbox" (ngModelChange)="articleService.triggerReloadArticles()"></ion-checkbox>
     </ion-item>
   </ion-card>

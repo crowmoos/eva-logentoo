@@ -17,6 +17,15 @@ page-home {
     font-weight: lighter;
   }
 
+  .selectable-badge {
+    cursor: pointer;
+  }
+
+  .selectable-badge:hover{
+    background-color: #f53d3d;
+    color: white;
+  }
+
   .logo{
     max-height: 35px;
     margin-right: 5px;
@@ -44,6 +53,10 @@ page-home {
 
   .article-title{
     font-weight: bold;
+  }
+
+  .article-header {
+    cursor: pointer;
   }
 
   .card{
@@ -140,6 +153,11 @@ page-home {
   .pap-badge{
     color: white;
     background-color: #005ea8;
+  }
+
+  .seloger-badge{
+    color: white;
+    background-color: #a80617;
   }
 
   .bncoin-badge {

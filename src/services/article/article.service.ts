@@ -45,6 +45,7 @@ export class ArticleService {
   }
 
   getArticlesBySearchParams(): Observable<any> {
+    console.log(this.searchParamsService.getSearchPostParams());
     return this.http.post(this.apiByZipCodeUrl, this.searchParamsService.getSearchPostParams())
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
