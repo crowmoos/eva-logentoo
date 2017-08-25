@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+import { HeroPage } from '../pages/hero/hero';
 import { ListPage } from '../pages/list/list';
 
 @Component({
@@ -12,7 +13,7 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = HeroPage;
 
   pages: Array<{title: string, component: any}>;
 

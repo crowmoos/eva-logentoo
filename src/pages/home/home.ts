@@ -1,5 +1,4 @@
 import { Component, Inject, ViewChild } from '@angular/core';
-import { NavController } from 'ionic-angular';
 import { ModalController, Select } from 'ionic-angular';
 import { ModalContentPage } from '../searchModal/search.modal';
 
@@ -13,7 +12,6 @@ export class HomePage {
 
   constructor(
     public modalCtrl: ModalController,
-    public navCtrl: NavController,
     @Inject('articleService') private articleService,
     @Inject('searchParamsService') private searchParamsService,
   ) {

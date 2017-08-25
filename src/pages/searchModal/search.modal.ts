@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import { Platform, NavParams, ViewController } from 'ionic-angular';
+import { Platform, NavParams, ViewController, NavController  } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'search-modal',
@@ -14,6 +15,7 @@ export class ModalContentPage {
     public platform: Platform,
     public params: NavParams,
     public viewCtrl: ViewController,
+    public navCtrl: NavController,
     @Inject('searchParamsService') private searchParamsService,
     @Inject('articleService') private articleService
   ) {
@@ -22,6 +24,7 @@ export class ModalContentPage {
     this.searchCity = '';
     this.searchParamsService = searchParamsService;
     this.articleService = articleService;
+    this.navCtrl = navCtrl;
   }
 
   ngAfterViewInit() {
@@ -35,14 +38,16 @@ export class ModalContentPage {
   }
 
   citySelected(city) {
-    if(this.chosenCities.filter(elm => elm.zipCode === city.zipCode).length === 0) {
+    if (this.chosenCities.filter(elm => elm.zipCode === city.zipCode).length === 0) {
       this.searchParamsService.addCity(city);
       this.articleService.triggerReloadArticles();
     }
+
     this.autoCompleteCities = [];
     this.searchCity = '';
+
     // TODO: set auto focus
-    console.log('selcted', city)
+    console.log('selcted', city);
   }
 
   removeCity(city) {
@@ -52,5 +57,9 @@ export class ModalContentPage {
 
   dismiss() {
     this.viewCtrl.dismiss();
+  }
+
+  navigateToResult() {
+    this.navCtrl.push(HomePage);
   }
 }

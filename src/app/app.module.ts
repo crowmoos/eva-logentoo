@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { HeroPage } from '../pages/hero/hero';
 import { Article } from '../components/article/article';
 import { SideBar } from '../components/side-bar/sideBar';
 import { ModalContentPage } from '../pages/searchModal/search.modal';
@@ -21,6 +22,7 @@ import { HttpModule } from '@angular/http';
   declarations: [
     MyApp,
     HomePage,
+    HeroPage,
     ListPage,
     Article,
     SideBar,
@@ -34,6 +36,7 @@ import { HttpModule } from '@angular/http';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    HeroPage,
     HomePage,
     ListPage,
     ModalContentPage

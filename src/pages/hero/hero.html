@@ -1,0 +1,48 @@
+<ion-header >
+  <ion-navbar>
+    <ion-buttons left class="menu-button">
+      <button ion-button icon-only (click)="openModal({charNum: 0})">
+        <ion-icon class="search-icon" name="md-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title class="logento-full-logo">
+      <img src="assets/images/logento.png" class="logo">
+      <span class="logo-text">Logentoo</span>
+    </ion-title>
+
+    <ion-buttons end class="small-only">
+      <button ion-button icon-only (click)="openModal({charNum: 0})">
+        <ion-icon class="search-icon" name="md-search"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end class="small-only">
+      <button ion-button icon-only (click)="triggerSort()">
+        <ion-icon class="search-icon" name="md-funnel"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-color" >
+  <div class="hero-title">
+    Boostez votre recherche de logement
+    <div class="center-form">
+      <ion-searchbar [(ngModel)]="searchCity"  class="card-searchbar" placeholder="Ville, Code Postale"></ion-searchbar>
+      <ion-item class="max-price">
+        <ion-input type="text" placeholder="Budget Max"></ion-input>
+      </ion-item>
+      <button ion-button color="success" *ngFor="let chosenCity of chosenCities" class="chosen-cities" (click)="removeCity(chosenCity)">
+        {{chosenCity.name}} <span style="text-transform:none;margin-left:10px;">x</span>
+      </button>
+      <ion-list class="autocomplete-list">
+        <button ion-item *ngFor="let city of autoCompleteCities" (click)="citySelected(city)" class="city-button">
+          {{ city.name | lowercase }}
+        </button>
+      </ion-list>
+      <button ion-button color="danger" [navPush]="HomePage" class="search-button" (click)="navigateToResult()">Rechercher</button>
+    </div>
+  </div>
+  <img src="assets/images/room-wallpaper.jpg" class="hero-wallpaper">
+  <div class="hero-cover"></div>
+</ion-content>

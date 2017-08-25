@@ -11,7 +11,8 @@ export class SearchParamsService {
   constructor(private http:Http) {
     this.http = http;
     this.apiAutocomplete = 'http://localhost:3000/zipcode/';
-    if(localStorage['searchQuery']) {
+
+    if (localStorage['searchQuery']) {
       this.searchQuery = JSON.parse(localStorage['searchQuery']);
     }else {
       this.searchQuery = {

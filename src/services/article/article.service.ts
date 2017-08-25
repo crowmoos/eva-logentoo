@@ -23,6 +23,7 @@ export class ArticleService {
     this.apiByZipCodeUrl = 'http://localhost:3000/articles-post';
     this.http = http;
     this.subReloadEvt = Observable.create(obs =>{
+      debugger;
       this.reloadEvt = obs;
     });
   }
@@ -35,6 +36,10 @@ export class ArticleService {
   }
 
   triggerReloadArticles(): void{
+    if (!this.reloadEvt) {
+      this.searchParamsService.updateLocalStorage();
+      return;
+    }
     this.reloadEvt.next('reloading');
   }
 
